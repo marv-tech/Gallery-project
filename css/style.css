@@ -14,6 +14,15 @@ body{
   align-items: center;
   width: 100%;
   background-color: #DCE2E8;
+  
+
+}
+
+.input-icon{
+  position: absolute;
+  top: 24%;
+  left: 11%;
+  font-size: 20px;
 
 }
 
@@ -24,8 +33,9 @@ body{
   height: 60px;
   border-radius: 15px;
   font-size: 20px;
-  padding:5px;
-    
+
+  padding:5px 5px 5px 50px;
+  position: relative; 
 }
 
 .gallery-container{
