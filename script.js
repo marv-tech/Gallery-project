@@ -20,11 +20,11 @@ document.addEventListener('DOMContentLoaded', () =>{
             location: unsplashImg.user.location,
             alt: unsplashImg.alt_description
             }))
-        console.log(unsplash)
+        
         appendImage(unsplash)
         
     })
-
+    
     
 
     function appendImage(unsplash){
@@ -38,9 +38,6 @@ document.addEventListener('DOMContentLoaded', () =>{
 
         const imageBio = document.createElement('div')
         imageBio.classList.add('imageBio');
-
-        
-        
 
         const imgDowloaded = document.createElement('img')
         imgDowloaded.classList.add('grid-item')
@@ -64,14 +61,12 @@ document.addEventListener('DOMContentLoaded', () =>{
                 for (let index = 0; index < imglist.length; index++) {
                     const img = imglist[index];
                     
-
                     img.addEventListener('click', function(){
                         modal.style.display = "block";
                         modalImg.src = this.src;
                         captionText.innerHTML = this.alt;
                     }) 
-                    
-                    
+      
                 }
             }
 
@@ -84,17 +79,19 @@ document.addEventListener('DOMContentLoaded', () =>{
             span.onclick = function() {
             modal.style.display = "none";
             }
-
         })
 
         const imgAuthor = document.createElement('p')
         imgAuthor.classList.add('imageAuthor')
         imgAuthor.textContent = `${imageData.author}`;
 
-        const imgLocation = document.createElement('p')
-        imgLocation.classList.add('authorLocation')
-        imgLocation.textContent = `${imageData.location}`;
-
+        
+        const imgLocation = document.createElement('p');
+        if (`${imageData.location}`!== 'null'){
+            imgLocation.classList.add('authorLocation');
+            imgLocation.textContent= `${imageData.location}`;
+        }
+        
         const modal =document.createElement('div')
         modal.classList.add('modal')
         modal.setAttribute("id", 'myModal')
@@ -118,9 +115,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         modal.appendChild(closeBtn)
         modal.appendChild(modalImage)
         modal.appendChild(imgCaption)
-
-        imageContainer.appendChild( imageDiv)
-            
+        imageContainer.appendChild( imageDiv)  
         });
 
     }
