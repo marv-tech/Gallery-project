@@ -88,14 +88,14 @@ img{
 
 .overlay::before {
   content: "";
-  height: 150px;
-  width: 94%;
+  height: 30%;
+  width: 95%;
+  margin-bottom: 3px;
   position: absolute;
   bottom: 10px;
   color: #FFFFFF;
   font-weight: bolder;
   font-size: 20px;
-  /* background-color: rgba(15, 15, 15, 0.2); */
   background: linear-gradient(rgba(15, 15, 15, 0), rgba(15, 15, 15, 0.3), rgba(15, 15, 15, 0.6), rgba(15, 15, 15, 0.8));
   border-radius: 0px 0px 20px 20px;  
   z-index: 200; 
@@ -164,8 +164,8 @@ img{
   padding-top: 0;
   margin: 2px auto;
   display: block;
-  max-width: 500px;
-  max-height: 600px;
+  max-width: 300px;
+  max-height: 400px;
   object-fit: cover;
 }
 
@@ -259,7 +259,8 @@ img{
   .overlay::before {
     content: "";
     height: 150px;
-    width: 92%;
+    width: 93.2%;
+    margin-bottom: 0;
     position: absolute;
     bottom: 10px;
     color: #FFFFFF;
@@ -397,7 +398,8 @@ img{
   .overlay::before {
     content: "";
     height: 150px;
-    width: 95%;
+    width: 94.5%;
+    margin-bottom: 0;
     position: absolute;
     bottom: 10px;
     color: #FFFFFF;
@@ -408,6 +410,28 @@ img{
     z-index: 200; 
     cursor: pointer;
   }
+
+
+  /* Modal Content (Image) */
+.modal-content {
+  padding-top: 0;
+  margin: 2px auto;
+  display: block;
+  max-width: 500px;
+  max-height: 600px;
+  object-fit: cover;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+}
     
 }
 
