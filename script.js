@@ -29,27 +29,15 @@ document.addEventListener('DOMContentLoaded', () =>{
         unsplash.forEach(imageData => {
 
         const imageDiv = document.createElement('div')
-        imageDiv.classList.add('grid-item-cont');
+        imageDiv.setAttribute('class', 'grid-item-cont overlay');
         const imageBio = document.createElement('div')
         imageBio.classList.add('imageBio');
 
         const imgDowloaded = document.createElement('img')
-        imgDowloaded.classList.add('grid-item')
+        imgDowloaded.setAttribute("class","grid-item")
+        // imgDowloaded.classList.add('grid-item')
         imgDowloaded.src= imageData.image
         imgDowloaded.alt= imageData.alt
-
-        // const images = document.querySelectorAll('img')   
-
-        // function fixHeight (){
-        //     var height =Math.floor(Math.random() * (500- 300+1)) + 300;
-        //     for (let i = 0; i < images.length; i++) {
-    
-        //         images[i].style.height = height; 
-        //     }
-        // }
-    
-     
-        // fixHeight ();
 
 
         imgDowloaded.addEventListener('click', function(){
@@ -62,6 +50,8 @@ document.addEventListener('DOMContentLoaded', () =>{
             var captionText = document.getElementById("caption");
 
             function getImage(){
+
+                
                 var imglist= document.querySelectorAll(".grid-item")
                 imglist = Array.from(imglist)
 
@@ -188,11 +178,24 @@ document.addEventListener('DOMContentLoaded', () =>{
         function appendImage(unsplash){
 
             const imageContainer = document.querySelector(".img-container2")
+
+            const btnDiv = document.querySelector('.btnDiv') 
+            btnDiv.classList.add('homeBtn') 
+
+            const homeBtnAnchor = document.createElement('a');
+            homeBtnAnchor.href= 'index.html'
+            homeBtnAnchor.classList.add('homeBtnAnch')
+
+            const homeBtnDiv =document.createElement('div')
+            homeBtnDiv.innerText= 'Back Home' 
+
+            btnDiv.appendChild(homeBtnAnchor)
+            homeBtnAnchor.appendChild(homeBtnDiv)
     
             unsplash.forEach(imageData => {
-    
+             
             const imageDiv = document.createElement('div')
-            imageDiv.classList.add('grid-item-cont');
+            imageDiv.setAttribute('class', 'grid-item-cont overlay');
             const imageBio = document.createElement('div')
             imageBio.classList.add('imageBio');
     
@@ -271,7 +274,9 @@ document.addEventListener('DOMContentLoaded', () =>{
             modal.appendChild(closeBtn)
             modal.appendChild(modalImage)
             modal.appendChild(imgCaption)
-            imageContainer.appendChild( imageDiv)  
+            imageContainer.appendChild( imageDiv)
+            
+
             });
         }
 

@@ -27,10 +27,12 @@ body{
 }
 
 .input-icon{
-  position: absolute;
+
+  display: none;
+  /* position: absolute;
   top: 26%;
   left: 13%;
-  font-size: 20px;
+  font-size: 20px; */
 }
 
 .bar{
@@ -71,6 +73,7 @@ body{
 img{
   max-width: 635px;
   min-height: 300px;
+  
 }
 
 .imageBio{
@@ -79,22 +82,24 @@ img{
   top: 70%;
   padding-left: 25px;
   color: white;
-  background-color: rgba(54, 54, 54, 0.158);
+  z-index: 250;
+  
 }
 
-.overlay {
-  position: fixed; /* Sit on top of the page content */
-  display: none; /* Hidden by default */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  color: white;
-  background-color: rgba(0,0,0,0.1); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
+.overlay::before {
+  content: "";
+  height: 150px;
+  width: 94%;
+  position: absolute;
+  bottom: 10px;
+  color: #FFFFFF;
+  font-weight: bolder;
+  font-size: 20px;
+  /* background-color: rgba(15, 15, 15, 0.2); */
+  background: linear-gradient(rgba(15, 15, 15, 0), rgba(15, 15, 15, 0.3), rgba(15, 15, 15, 0.6), rgba(15, 15, 15, 0.8));
+  border-radius: 0px 0px 20px 20px;  
+  z-index: 200; 
+  cursor: pointer;
 }
 
 .imageAuthor{
@@ -142,23 +147,26 @@ img{
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  z-index: 300; /* Sit on top */
+  padding-top: 50px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  overflow: auto;
+  /* overflow: auto; Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 
 /* Modal Content (Image) */
 .modal-content {
-  margin: auto;
+  padding-top: 0;
+  margin: 2px auto;
   display: block;
-  width: 80%;
-  max-width: 700px;
+  max-width: 500px;
+  max-height: 600px;
+  object-fit: cover;
 }
 
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
@@ -170,7 +178,6 @@ img{
   text-align: center;
   color: #ccc;
   padding: 10px 0;
-  height: 150px;
 }
 
 /* Add Animation - Zoom in the Modal */
@@ -187,7 +194,7 @@ img{
 /* The Close Button */
 .close {
   position: absolute;
-  top: 15px;
+  top: 10px;
   right: 35px;
   color: #f1f1f1;
   font-size: 40px;
@@ -199,6 +206,29 @@ img{
 .close:focus {
   color: #bbb;
   text-decoration: none;
+  cursor: pointer;
+}
+
+.homeBtn{
+  width: 120px;
+  height: 60px;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 18px;
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: #4e4d4d;
+  color: white;
+  float: right;
+  margin: 0 25px 25px 0;
+}
+
+.homeBtnAnch{
+  width: 120px;
+  height: 60px;
+  padding-top: 18px;
+  text-decoration: none;
+  color: white;
   cursor: pointer;
 }
 
@@ -224,6 +254,22 @@ img{
   .tworows{
     grid-column: 2/3;
     grid-row: 1/3;
+  }
+
+  .overlay::before {
+    content: "";
+    height: 150px;
+    width: 92%;
+    position: absolute;
+    bottom: 10px;
+    color: #FFFFFF;
+    font-weight: bolder;
+    font-size: 20px;
+    /* background-color: rgba(15, 15, 15, 0.2); */
+    background: linear-gradient(rgba(15, 15, 15, 0), rgba(15, 15, 15, 0.3), rgba(15, 15, 15, 0.6), rgba(15, 15, 15, 0.8));
+    border-radius: 0px 0px 20px 20px;  
+    z-index: 200; 
+    cursor: pointer;
   }
   
  
@@ -255,13 +301,6 @@ img{
     object-fit: cover;
   }
 
-  .input-icon{
-    position: absolute;
-    top: 26%;
-    left: 13%;
-    font-size: 20px;
-  
-  }
 
   .textStyle{
     font-size: 50px;
@@ -270,6 +309,10 @@ img{
     background-color: #DCE2E8;
     color: rgb(27, 27, 27);
   
+  }
+
+  .input-icon{
+    display: none;
   }
   
     
@@ -285,78 +328,94 @@ img{
       margin-right: 150px;
       gap: 30px;  
       
-  }
+    }
 
-  .gallery-container{
-    background:linear-gradient(
-      #DCE2E8 0%,
-      #DCE2E8 20%,
-      white 20%,
-      white 100%
-    )
-  }
-  
-  
-.tworows{
-  grid-column: 2/3;
-  grid-row: 1/3;
-  
-}
-
-.tworowsImg{
-  object-fit: cover;
-
-}
-.tworows2{
-  grid-column: 1/2;
-  grid-row: 3/5;
-
-}
-.tworows3{
-  grid-column: 3/4;
-  grid-row: 3/5;
-
-}
-.tworows4{
-  grid-column: 2/3;
-  grid-row: 5/7;
-
-}
-
-.grid-item-cont img{
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.grid-item-cont{
-  position: relative;
-}
-
-.imageBio{
-  position: absolute;
-  bottom: 15%;
-  top: 72%;
-  padding-left: 25px;
-  color: white;
-}
-
-.input-icon{
-  position: absolute;
-  top: 24%;
-  left: 11%;
-  font-size: 20px;
-
-}
-
-.textStyle{
-  font-size: 80px;
-  font-weight: 500;
-  width: 100%;
-  background-color: #DCE2E8;
-  color: rgb(27, 27, 27);
-
-}
+    .gallery-container{
+      background:linear-gradient(
+        #DCE2E8 0%,
+        #DCE2E8 20%,
+        white 20%,
+        white 100%
+      )
+    }
+    
+    
+  .tworows{
+    grid-column: 2/3;
+    grid-row: 1/3;
     
   }
+
+  .tworowsImg{
+    object-fit: cover;
+
+  }
+  .tworows2{
+    grid-column: 1/2;
+    grid-row: 3/5;
+
+  }
+  .tworows3{
+    grid-column: 3/4;
+    grid-row: 3/5;
+
+  }
+  .tworows4{
+    grid-column: 2/3;
+    grid-row: 5/7;
+
+  }
+
+  .grid-item-cont img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .grid-item-cont{
+    position: relative;
+  }
+
+  .imageBio{
+    position: absolute;
+    bottom: 15%;
+    top: 72%;
+    padding-left: 25px;
+    color: white;
+  }
+
+  .input-icon{
+    display: block;
+    position: absolute;
+    top: 24%;
+    left: 11%;
+    font-size: 20px;
+
+  }
+
+  .textStyle{
+    font-size: 80px;
+    font-weight: 500;
+    width: 100%;
+    background-color: #DCE2E8;
+    color: rgb(27, 27, 27);
+
+  }
+
+  .overlay::before {
+    content: "";
+    height: 150px;
+    width: 95%;
+    position: absolute;
+    bottom: 10px;
+    color: #FFFFFF;
+    font-weight: bolder;
+    font-size: 20px;
+    background: linear-gradient(rgba(15, 15, 15, 0), rgba(15, 15, 15, 0.3), rgba(15, 15, 15, 0.6), rgba(15, 15, 15, 0.8));
+    border-radius: 0px 0px 20px 20px;  
+    z-index: 200; 
+    cursor: pointer;
+  }
+    
+}
 
